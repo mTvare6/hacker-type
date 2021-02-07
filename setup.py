@@ -11,4 +11,4 @@ setuptools.setup(
     ],
     python_requires='>=3.6'
 )
-os.rename("./hacker-type/__init__.py", /usr/local/bin/hacker-type)
+#os.rename("./hacker-type/__init__.py", "/usr/local/bin/hacker-type")
