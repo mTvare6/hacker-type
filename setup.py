@@ -1,7 +1,7 @@
 import setuptools
 import os
 setuptools.setup(
-        name='hacker-type',
+        name='hackertype',
     version='0.1.0',
     scripts=['bin/hacker-type'],
     author='mTvare',
