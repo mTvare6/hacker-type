@@ -2,7 +2,7 @@ import setuptools
 setuptools.setup(
         name='hacker-type',
     version='0.1.0',
-    scripts=['bin/hacker-type']
+    scripts=['bin/hacker-type'],
     author='mTvare',
     description='CLI based version of https://hackertyper.net/.',
     install_requires=[
