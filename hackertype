@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
 import sys
+
+if len(sys.argv) == 1: sys.exit(1)
+
+
 import tty
 import os
 import termios
 import itertools
 import random
+import requests
 
 
 def alternating_size_chunks(iterable, steps):
@@ -15,11 +20,32 @@ def alternating_size_chunks(iterable, steps):
         yield iterable[n:n + next_step]
         n += next_step
         
+useUrl = False
+useWrite = True
 
-url = "https://raw.githubusercontent.com/carlospolop/privilege-escalation-awesome-scripts-suite/master/linPEAS/linpeas.sh"
-file_content=os.popen('curl "'+url+'" 2>/dev/null').read()
-print("\r")
-content = list(alternating_size_chunks(file_content, (random.randrange(2, 5), random.randrange(2, 5), random.randrange(2, 5))))
+url = ""
+
+for arg in sys.argv:
+    if arg == "-u" or arg == "--url":
+        useUrl = True
+        useWrite = False
+        url = sys.argv[2]
+        break
+
+
+file_content=""
+if useUrl:
+    file_content = requests.get(url).text
+else:
+    with open(
+            os.path.expanduser( sys.argv[1] )
+        ) as file:
+        file_content = file.read()
+
+start = 2
+end = 5
+
+content = list(alternating_size_chunks(file_content, (random.randrange(start, end), random.randrange(start, end), random.randrange(start, end))))
 
 
 
